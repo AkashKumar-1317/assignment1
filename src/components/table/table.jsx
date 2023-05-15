@@ -2687,8 +2687,8 @@ export default function Table() {
   };
   const medium = (Obs) => {
     return Obs.length % 2 === 0
-      ? ((Obs[Obs.length / 2] + Obs[Obs.length / 2 + 1]) * 0.5).toFixed(3)
-      : Obs[(Obs.length + 1) * 0.5].toFixed(3);
+      ? ((Obs[Obs.length / 2 - 1] + Obs[Obs.length / 2]) * 0.5)?.toFixed(3)
+      : Obs[(Obs.length - 1) / 2]?.toFixed(3);
   };
   const mode = (Obs) => {
     const mode = {};
@@ -2713,7 +2713,10 @@ export default function Table() {
     return max.toFixed(3);
   };
   const gamma = (Obs) =>
-    Obs.map((data) => (data?.Ash * data?.Hue) / data?.Magnesium);
+    Obs.map((data) => {
+      // console.log(((data?.Ash * data?.Hue) / data?.Magnesium).toFixed(3));
+      return (data?.Ash * data?.Hue) / data?.Magnesium;
+    });
   return (
     <div>
       <table>
@@ -2725,6 +2728,7 @@ export default function Table() {
                 arr.push(data.Alcohol);
                 return <th key={data.Alcohol}>Class{data.Alcohol}</th>;
               }
+              return null;
             })}
           </tr>
           <tr>
@@ -2775,6 +2779,7 @@ export default function Table() {
                 arr1.push(data.Alcohol);
                 return <th key={data.Alcohol}>Class{data.Alcohol}</th>;
               }
+              return null;
             })}
           </tr>
           <tr>
