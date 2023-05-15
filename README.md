@@ -4,4 +4,4 @@ Screenshot for the desired output added
 
 ## Screenshots
 
-![Output](https://github.com/AkashKumar-1317/assignment1/blob/master/OutputScreenshots/Output.png?raw=true)
+![Output](https://github.com/AkashKumar-1317/assignment1/blob/master/OutputScreenshots/OP.png?raw=true)
